@@ -1,0 +1,30 @@
+import random
+
+# user input
+user_choice = int(input("Type 1 if you are going to enter the integers to be sorted, 2 if not: "))
+user_nums = int(input("How many numbers do you want to sort?: "))
+if user_choice == 1:
+    # creates list with user numbers
+    nums = []
+    for x in range(0, user_nums):
+        nums.append(int(input("Enter a number: ")))
+    print("The list of", user_nums, "integers are as follows: ")
+    print(nums)
+else:
+    nums = []
+    user_range = int(input("Enter the maximum range of the integers to be sorted: "))
+    for x in range(user_nums):
+        nums.append(random.randint(0, user_range))
+    print("The list of", user_nums, "integers are as follows: ")
+    print(nums)
+# bubble sorts the list
+x = len(nums)
+while x > 0:
+    x = x - 1
+    for index in range(0, x):
+        if nums[index] > nums[index+1]:
+            temp = nums[index]
+            nums[index] = nums[index+1]
+            nums[index+1] = temp
+print("The list of", user_nums, "sorted integers are as follows:")
+print(nums)
